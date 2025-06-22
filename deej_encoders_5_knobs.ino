@@ -1,9 +1,21 @@
 #include <Encoder.h>
 #include <Adafruit_NeoPixel.h>
+
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 32
+
+#define OLED_RESET -1
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
 const int NUM_KNOBS = 5;
 
-Adafruit_NeoPixel led_master(1, 11, NEO_GRB + NEO_KHZ800);
-Adafruit_NeoPixel led_discord(1, 12, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel led_master(1, A5, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel led_discord(1, A6, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel led_browser(1, 13, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel led_music(1, 14, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel led_gaming(1, 2, NEO_GRB + NEO_KHZ800);
@@ -71,6 +83,11 @@ void setup() {
   led_music.clear();
   led_gaming.begin();
   led_gaming.clear();
+
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { // Address 0x3C for 128x32
+    Serial.println(F("SSD1306 allocation failed"));
+    for (;;);
+  }
 }
 
 void loop() {
@@ -89,6 +106,42 @@ void loop() {
   led_browser.show();
   led_music.show();
   led_gaming.show();
+
+  
+  display.clearDisplay();
+  display.setTextColor(SSD1306_WHITE);
+  display.setTextSize(1);
+  display.setRotation(2);
+
+  display.setCursor(0,0);
+  display.print("GEN");
+  display.print("|");
+  display.print("DIS");
+  display.print("|");
+  display.print("BRA");
+  display.print("|");
+  display.print("SPO");
+  display.print("|");
+  display.print("GAM");
+
+  display.setCursor(0,18);
+  for (int i =0; i < NUM_KNOBS; i++) {
+    if (analog_knob_values[i]/10 == 100) {
+    }
+    else if (analog_knob_values[i]/10 < 10) {
+      display.print("  ");
+    }
+    else {
+      display.print(" ");
+    };
+    display.print(analog_knob_values[i]/10);
+    if (i != 4) {
+    display.print("|");
+    }
+  };
+
+
+  display.display();
 }
 
 void send_knob_values() {
@@ -102,6 +155,7 @@ void send_knob_values() {
     }
   }
   Serial.println(built_string);
+
 }
 
 void check_buttons(){
