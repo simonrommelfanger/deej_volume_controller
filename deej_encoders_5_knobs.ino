@@ -160,19 +160,19 @@ void check_encoders(){
   else if (master_mute == 0 && (master_value > max_value || master_value == max_value)){
     analog_knob_values[0] = max_value * 10;
     knob_master.write(max_value);
-    led_master.setPixelColor(0, 0, 255, 204);
-    led_master.setBrightness(analog_knob_values[0] / 10);
+    led_master.setPixelColor(0, 0, 136, 0);
+    led_master.setBrightness(100);
   }
   else if (master_mute == 1){
     analog_knob_values[0] = 0;
     led_master.setPixelColor(0, 212, 0, 255);
-    led_master.setBrightness(50);
+    led_master.setBrightness(10);
   }
   else {
     analog_knob_values[0] = 0;
     knob_master.write(0);
-    led_master.setPixelColor(0, 212, 0, 255);
-    led_master.setBrightness(50);
+    led_master.setPixelColor(0, 255, 0, 0);
+    led_master.setBrightness(10);
   }
 
   if (discord_value > 0 && discord_value < max_value && discord_mute == 0){
@@ -183,19 +183,19 @@ void check_encoders(){
   else if (discord_mute == 0 && (discord_value > max_value || discord_value == max_value)){
     analog_knob_values[1] = max_value * 10;
     knob_discord.write(max_value);
-    led_discord.setPixelColor(0, 0, 255, 204);
-    led_discord.setBrightness(analog_knob_values[1] / 10);
+    led_discord.setPixelColor(0, 0, 136, 0);
+    led_discord.setBrightness(100);
   }
   else if (discord_mute == 1){
     analog_knob_values[1] = 0;
     led_discord.setPixelColor(0, 212, 0, 255);
-    led_discord.setBrightness(50);
+    led_discord.setBrightness(10);
   }
   else {
     analog_knob_values[1] = 0;
     knob_discord.write(0);
-    led_discord.setPixelColor(0, 212, 0, 255);
-    led_discord.setBrightness(50);
+    led_discord.setPixelColor(0, 255, 0, 0);
+    led_discord.setBrightness(10);
   }
 
   if (browser_value > 0 && browser_value < max_value && browser_mute == 0){
@@ -206,19 +206,19 @@ void check_encoders(){
   else if (browser_mute == 0 && (browser_value > max_value || browser_value == max_value)){
     analog_knob_values[2] = max_value * 10;
     knob_browser.write(max_value);
-    led_browser.setPixelColor(0, 0, 255, 204);
-    led_browser.setBrightness(analog_knob_values[2] / 10);
+    led_browser.setPixelColor(0, 0, 136, 0);
+    led_browser.setBrightness(100);
   }
   else if (browser_mute == 1){
     analog_knob_values[2] = 0;
     led_browser.setPixelColor(0, 212, 0, 255);
-    led_browser.setBrightness(50);
+    led_browser.setBrightness(10);
   }
   else {
     analog_knob_values[2] = 0;
     knob_browser.write(0);
-    led_browser.setPixelColor(0, 212, 0, 255);
-    led_browser.setBrightness(50);
+    led_browser.setPixelColor(0, 255, 0, 0);
+    led_browser.setBrightness(10);
   }
 
   if (music_value > 0 && music_value < max_value && music_mute == 0){
@@ -229,19 +229,19 @@ void check_encoders(){
   else if (music_mute == 0 && (music_value > max_value || music_value == max_value)){
     analog_knob_values[3] = max_value * 10;
     knob_music.write(max_value);
-    led_music.setPixelColor(0, 0, 255, 204);
-    led_music.setBrightness(analog_knob_values[3] / 10);
+    led_music.setPixelColor(0, 0, 136, 0);
+    led_music.setBrightness(100);
   }
   else if (music_mute == 1){
     analog_knob_values[3] = 0;
     led_music.setPixelColor(0, 212, 0, 255);
-    led_music.setBrightness(50);
+    led_music.setBrightness(10);
   }
   else {
     analog_knob_values[3] = 0;
     knob_music.write(0);
-    led_music.setPixelColor(0, 212, 0, 255);
-    led_music.setBrightness(50);
+    led_music.setPixelColor(0, 255, 0, 0);
+    led_music.setBrightness(10);
   }
 
   if (gaming_value > 0 && gaming_value < max_value && gaming_mute == 0){
@@ -252,18 +252,18 @@ void check_encoders(){
   else if (gaming_mute == 0 && (gaming_value > max_value || gaming_value == max_value)){
     analog_knob_values[4] = max_value * 10;
     knob_gaming.write(max_value);
-    led_gaming.setPixelColor(0, 0, 255, 204);
-    led_gaming.setBrightness(analog_knob_values[4] / 10);
+    led_gaming.setPixelColor(0, 0, 136, 0);
+    led_gaming.setBrightness(100);
   }
   else if (gaming_mute == 1){
     analog_knob_values[4] = 0;
     led_gaming.setPixelColor(0, 212, 0, 255);
-    led_gaming.setBrightness(50);
+    led_gaming.setBrightness(10);
   }
   else {
     analog_knob_values[4] = 0;
     knob_gaming.write(0);
-    led_gaming.setPixelColor(0, 212, 0, 255);
-    led_gaming.setBrightness(50);
+    led_gaming.setPixelColor(0, 255, 0, 0);
+    led_gaming.setBrightness(10);
   }
 }
