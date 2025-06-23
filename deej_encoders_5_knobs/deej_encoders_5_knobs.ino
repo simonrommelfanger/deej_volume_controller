@@ -56,16 +56,16 @@ void setup() {
   pinMode(music_button, INPUT_PULLUP);
   pinMode(gaming_button, INPUT_PULLUP);
 
-  analog_knob_values[0] = 512;
-  knob_master.write(51);
-  analog_knob_values[1] = 512;
-  knob_discord.write(51);
-  analog_knob_values[2] = 512;
-  knob_browser.write(51);
-  analog_knob_values[3] = 512;
-  knob_music.write(51);
-  analog_knob_values[4] = 512;
-  knob_gaming.write(51);
+  analog_knob_values[0] = 500;
+  knob_master.write(50);
+  analog_knob_values[1] = 500;
+  knob_discord.write(50);
+  analog_knob_values[2] = 500;
+  knob_browser.write(50);
+  analog_knob_values[3] = 500;
+  knob_music.write(50);
+  analog_knob_values[4] = 500;
+  knob_gaming.write(50);
 
   master_mute = 0;
   discord_mute = 0;
